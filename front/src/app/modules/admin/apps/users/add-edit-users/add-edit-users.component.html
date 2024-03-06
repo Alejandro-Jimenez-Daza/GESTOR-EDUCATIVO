@@ -1,0 +1,54 @@
+<div class="flex flex-col sm:flex-row md:flex-col flex-auto justify-between py-2 px-4 md:px-4 border-b">
+    <div class="flex flex-col flex-auto min-w-0">
+        <!-- Título -->
+        <div class="flex flex-row sm:flex-row md:flex-row justify-between py-2 border-b">
+            <div class="text-4xl font-extrabold tracking-tight leading-none">Nuevo Usuario</div>
+            <div [align]="'right'">
+                <button mat-flat-button [color]="'primary'" style="background-color: #15ca20;color: #FFFFFF"
+                    matTooltip="Guardar">
+                    <mat-icon [svgIcon]="'mat_outline:save'"></mat-icon>
+                    &nbsp;
+                    Guardar
+                </button>
+                &nbsp;
+                <button mat-flat-button  matTooltip="Volver" [routerLink]="['/apps/usuarios']">
+                    <mat-icon [svgIcon]="'heroicons_solid:arrow-narrow-left'"></mat-icon>
+                    &nbsp;
+                    Volver
+                </button>
+            </div>
+        </div>
+
+        <!-- contenido -->
+        <div class="flex flex-col flex-auto min-w-0 w-full">
+            <br>
+            <form role="form" #forma="ngForm">
+                <div class="flex flex-wrap -m-3">
+                    <mat-form-field class="w-full md:w-1/2 p-2">
+                        <mat-label>Nombre:</mat-label>
+                        <input name="name" id="name" matInput [(ngModel)]="user.first_name" required>
+                    </mat-form-field>
+                    <mat-form-field class="w-full md:w-1/4 p-2">
+                        <mat-label>Apellido:</mat-label>
+                        <input name="last_name" id="last_name" matInput [(ngModel)]="user.last_name"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field class="w-full md:w-1/4 p-2">
+                        <mat-label>Email:</mat-label>
+                        <input type="text" name="email" id="email" matInput [(ngModel)]="user.email" 
+                            required>
+                    </mat-form-field>
+                    <mat-form-field class="w-full md:w-1/4 p-2">
+                        <mat-label>Cédula:</mat-label>
+                        <input type="text" name="person_id" id="person_id" matInput [(ngModel)]="user.person_id" 
+                           required>
+                    </mat-form-field>
+                    <div class="w-full md:w-1/4 p-2">
+                        <mat-slide-toggle name="local_login" style="margin-top: 20px;" [(ngModel)]="user.local_login">
+                            Usuario Local</mat-slide-toggle>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
